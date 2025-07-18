@@ -1,0 +1,62 @@
+{
+  "name": "personal-website-v2",
+  "version": "1.0.0",
+  "description": "A beautiful personal website with nature-inspired design and modern animations",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve . --live",
+    "build": "echo 'Static site - no build process needed'",
+    "lint": "npx eslint assets/js/ components/",
+    "format": "npx prettier --write assets/css/ assets/js/ components/",
+    "serve": "npx serve .",
+    "setup-stagewise": "npm install @stagewise/toolbar --save-dev"
+  },
+  "keywords": [
+    "personal-website",
+    "portfolio",
+    "nature-design",
+    "frontend",
+    "responsive",
+    "animations",
+    "stagewise"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@stagewise/toolbar": "^1.0.0",
+    "serve": "^14.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/personal-website-v2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/personal-website-v2/issues"
+  },
+  "homepage": "https://yourusername.github.io/personal-website-v2",
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
+  "stagewise": {
+    "config": {
+      "plugins": [],
+      "theme": {
+        "primaryColor": "#2e7d66",
+        "secondaryColor": "#a3b18a",
+        "accentColor": "#e76f51"
+      },
+      "toolbar": {
+        "position": "bottom-right",
+        "showOnlyInDev": true
+      }
+    }
+  }
+} 

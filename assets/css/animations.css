@@ -1,0 +1,852 @@
+/* ===============================
+   ADVANCED ANIMATIONS & EFFECTS
+   =============================== */
+
+/* Page Load Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-200deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes flipInX {
+    from {
+        opacity: 0;
+        transform: perspective(400px) rotateX(-90deg);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(400px) rotateX(0deg);
+    }
+}
+
+@keyframes flipInY {
+    from {
+        opacity: 0;
+        transform: perspective(400px) rotateY(-90deg);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(400px) rotateY(0deg);
+    }
+}
+
+/* Nature-Inspired Floating Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes floatSlow {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes floatFast {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes leafDance {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(-3deg);
+    }
+    75% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
+
+@keyframes windSway {
+    0%, 100% {
+        transform: translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateX(10px) rotate(2deg);
+    }
+    50% {
+        transform: translateX(-5px) rotate(-1deg);
+    }
+    75% {
+        transform: translateX(8px) rotate(1deg);
+    }
+}
+
+@keyframes gentleWave {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkleRotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 0.3;
+    }
+}
+
+@keyframes organicPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Enhanced Hover Effects */
+@keyframes hoverLift {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes hoverGlow {
+    0% {
+        box-shadow: 0 5px 15px rgba(46, 125, 102, 0.1);
+    }
+    100% {
+        box-shadow: 0 10px 30px rgba(46, 125, 102, 0.3);
+    }
+}
+
+@keyframes hoverBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes hoverRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes hoverScale {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* Text Animations */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(46, 125, 102, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(46, 125, 102, 0.8);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Progress Bar Animations */
+@keyframes progressFill {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: var(--progress-width);
+    }
+}
+
+@keyframes progressGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(46, 125, 102, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(46, 125, 102, 0.6);
+    }
+}
+
+/* Loading Animations */
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dots {
+    0%, 20% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Parallax Effect */
+@keyframes parallaxFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+/* Organic Growth Animation */
+@keyframes organicGrowth {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+/* Page Transition Animations */
+@keyframes pageSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pageSlideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* Nature-Inspired Particle Effects */
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) translateX(50px);
+        opacity: 0;
+    }
+}
+
+@keyframes leafFall {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes dewDrop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animation Classes */
+.animate-fadeInUp {
+    animation: fadeInUp 1s ease-out;
+}
+
+.animate-fadeInDown {
+    animation: fadeInDown 1s ease-out;
+}
+
+.animate-fadeInLeft {
+    animation: fadeInLeft 1s ease-out;
+}
+
+.animate-fadeInRight {
+    animation: fadeInRight 1s ease-out;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.8s ease-out;
+}
+
+.animate-zoomIn {
+    animation: zoomIn 0.6s ease-out;
+}
+
+.animate-slideInUp {
+    animation: slideInUp 0.8s ease-out;
+}
+
+.animate-slideInDown {
+    animation: slideInDown 0.8s ease-out;
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.8s ease-out;
+}
+
+.animate-rotateIn {
+    animation: rotateIn 0.8s ease-out;
+}
+
+.animate-bounceIn {
+    animation: bounceIn 0.8s ease-out;
+}
+
+.animate-flipInX {
+    animation: flipInX 0.8s ease-out;
+}
+
+.animate-flipInY {
+    animation: flipInY 0.8s ease-out;
+}
+
+/* Nature Animation Classes */
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-floatSlow {
+    animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-floatFast {
+    animation: floatFast 4s ease-in-out infinite;
+}
+
+.animate-leafDance {
+    animation: leafDance 8s ease-in-out infinite;
+}
+
+.animate-windSway {
+    animation: windSway 10s ease-in-out infinite;
+}
+
+.animate-gentleWave {
+    animation: gentleWave 5s ease-in-out infinite;
+}
+
+.animate-ripple {
+    animation: ripple 2s ease-out infinite;
+}
+
+.animate-sparkleRotate {
+    animation: sparkleRotate 4s ease-in-out infinite;
+}
+
+.animate-organicPulse {
+    animation: organicPulse 3s ease-in-out infinite;
+}
+
+.animate-breathe {
+    animation: breathe 4s ease-in-out infinite;
+}
+
+/* Hover Animation Classes */
+.hover-lift:hover {
+    animation: hoverLift 0.3s ease-out forwards;
+}
+
+.hover-glow:hover {
+    animation: hoverGlow 0.3s ease-out forwards;
+}
+
+.hover-bounce:hover {
+    animation: hoverBounce 0.6s ease-out;
+}
+
+.hover-rotate:hover {
+    animation: hoverRotate 0.3s ease-out forwards;
+}
+
+.hover-scale:hover {
+    animation: hoverScale 0.3s ease-out forwards;
+}
+
+/* Text Animation Classes */
+.animate-typewriter {
+    animation: typewriter 3s steps(40, end);
+}
+
+.animate-blink {
+    animation: blink 1s infinite;
+}
+
+.animate-textGlow {
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+.animate-gradientShift {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-1), var(--accent-2), var(--primary-color));
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease infinite;
+}
+
+/* Progress Animation Classes */
+.animate-progressFill {
+    animation: progressFill 2s ease-out forwards;
+}
+
+.animate-progressGlow {
+    animation: progressGlow 2s ease-in-out infinite;
+}
+
+/* Loading Animation Classes */
+.animate-spinner {
+    animation: spinner 1s linear infinite;
+}
+
+.animate-dots {
+    animation: dots 1.4s ease-in-out infinite;
+}
+
+.animate-wave {
+    animation: wave 1s ease-in-out infinite;
+}
+
+.animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Parallax Animation Classes */
+.animate-parallaxFloat {
+    animation: parallaxFloat 10s ease-in-out infinite;
+}
+
+/* Organic Growth Animation Classes */
+.animate-organicGrowth {
+    animation: organicGrowth 1.5s ease-out;
+}
+
+/* Page Transition Classes */
+.animate-pageSlideIn {
+    animation: pageSlideIn 0.8s ease-out;
+}
+
+.animate-pageSlideOut {
+    animation: pageSlideOut 0.8s ease-out;
+}
+
+/* Nature Particle Animation Classes */
+.animate-particleFloat {
+    animation: particleFloat 8s ease-out infinite;
+}
+
+.animate-leafFall {
+    animation: leafFall 10s ease-out infinite;
+}
+
+.animate-dewDrop {
+    animation: dewDrop 2s ease-out;
+}
+
+/* Delayed Animations */
+.animate-delay-1 {
+    animation-delay: 0.1s;
+}
+
+.animate-delay-2 {
+    animation-delay: 0.2s;
+}
+
+.animate-delay-3 {
+    animation-delay: 0.3s;
+}
+
+.animate-delay-4 {
+    animation-delay: 0.4s;
+}
+
+.animate-delay-5 {
+    animation-delay: 0.5s;
+}
+
+.animate-delay-6 {
+    animation-delay: 0.6s;
+}
+
+.animate-delay-7 {
+    animation-delay: 0.7s;
+}
+
+.animate-delay-8 {
+    animation-delay: 0.8s;
+}
+
+.animate-delay-9 {
+    animation-delay: 0.9s;
+}
+
+.animate-delay-10 {
+    animation-delay: 1s;
+}
+
+/* Animation States */
+.animate-paused {
+    animation-play-state: paused;
+}
+
+.animate-running {
+    animation-play-state: running;
+}
+
+/* Intersection Observer Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Advanced Nature Effects */
+.nature-bg-animated {
+    background: linear-gradient(45deg, var(--bg-light), var(--bg-secondary));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.organic-border {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: organicPulse 8s ease-in-out infinite;
+}
+
+.leaf-shadow {
+    filter: drop-shadow(0 5px 15px rgba(46, 125, 102, 0.3));
+    animation: gentleWave 6s ease-in-out infinite;
+}
+
+.nature-glow {
+    box-shadow: 0 0 30px rgba(46, 125, 102, 0.3);
+    animation: organicPulse 4s ease-in-out infinite;
+}
+
+/* Performance Optimizations */
+.will-change-transform {
+    will-change: transform;
+}
+
+.will-change-opacity {
+    will-change: opacity;
+}
+
+.will-change-scroll {
+    will-change: scroll-position;
+}
+
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Media Queries for Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .animate-float,
+    .animate-floatSlow,
+    .animate-floatFast,
+    .animate-leafDance,
+    .animate-windSway,
+    .animate-gentleWave,
+    .animate-ripple,
+    .animate-sparkleRotate,
+    .animate-organicPulse,
+    .animate-breathe {
+        animation: none !important;
+    }
+} 
