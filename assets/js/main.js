@@ -34,6 +34,8 @@ function initSmoothScrolling() {
     const navLinks = document.querySelectorAll('a[href^="#"]');
     
     navLinks.forEach(link => {
+        if (link.closest('.navbar')) return;
+        
         link.addEventListener('click', function(e) {
             e.preventDefault();
             

@@ -73,28 +73,6 @@
     transform: scaleY(1);
 }
 
-/* Enhanced Navigation */
-.nav-link {
-    position: relative;
-    padding: 0.5rem 0;
-}
-
-.nav-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -20px;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-1));
-    transition: width 0.3s ease;
-    border-radius: 0 20px 20px 0;
-}
-
-.nav-link:hover::before {
-    width: 5px;
-}
-
 /* Enhanced Form Elements */
 .form-group {
     position: relative;
@@ -476,19 +454,6 @@
 
 .tooltip:hover::before {
     opacity: 1;
-}
-
-/* Enhanced Navigation Mobile */
-.nav-toggle.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.nav-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.nav-toggle.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Enhanced Floating Elements */
