@@ -130,21 +130,34 @@ function initParallaxEffect() {
     const heroContent = document.querySelector('.hero-content');
     const floatingElements = document.querySelectorAll('.floating-leaf, .floating-particle');
     
-    window.addEventListener('scroll', function() {
+    let ticking = false;
+    let lastUpdate = 0;
+    const throttleRate = 16;
+    
+    function updateParallax() {
         const scrolled = window.pageYOffset;
         const rate = scrolled * -0.5;
         
-        // Move hero content
         if (heroContent) {
             heroContent.style.transform = `translateY(${rate}px)`;
         }
         
-        // Move floating elements at different rates
         floatingElements.forEach((element, index) => {
             const speed = 0.1 + (index * 0.05);
             const yPos = scrolled * speed;
             element.style.transform = `translateY(${yPos}px)`;
         });
+        
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        const now = performance.now();
+        if (!ticking && now - lastUpdate > throttleRate) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+            lastUpdate = now;
+        }
     });
 }
 

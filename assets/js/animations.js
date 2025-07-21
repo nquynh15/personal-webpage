@@ -279,9 +279,7 @@ function initCursorEffects() {
     const interactiveElements = document.querySelectorAll('.btn, .project-card, .blog-card, .service-card');
     
     interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', function() {
-            this.style.cursor = 'none';
-            
+        element.addEventListener('mouseenter', function() {           
             // Add magnetic effect
             addMagneticEffect(this);
         });
@@ -297,13 +295,16 @@ function initCursorEffects() {
 
 function addMagneticEffect(element) {
     element.classList.add('magnetic');
-    
+    // Debounce mousemove to only update every 16ms (60fps)
+    element.debouncedMagneticMove = debounce(handleMagneticMove, 16);
     element.addEventListener('mousemove', handleMagneticMove);
 }
 
 function removeMagneticEffect(element) {
     element.classList.remove('magnetic');
-    element.removeEventListener('mousemove', handleMagneticMove);
+    if (element.debouncedMagneticMove) {
+        element.removeEventListener('mousemove', handleMagneticMove);
+    }
     element.style.transform = 'translate(0, 0)';
 }
 
@@ -312,11 +313,23 @@ function handleMagneticMove(e) {
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
     
-    const strength = 0.1;
+    const strength = 0.2;
     const moveX = x * strength;
     const moveY = y * strength;
     
     this.style.transform = `translate(${moveX}px, ${moveY}px)`;
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
 }
 
 // ===============================
