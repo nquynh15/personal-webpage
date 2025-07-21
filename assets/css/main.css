@@ -936,31 +936,88 @@ a:hover {
     box-shadow: 0 5px 15px var(--shadow);
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
+.floating-label-group {
+    position: relative;
+    margin-bottom: 1.4rem;
 }
 
-.form-group input,
-.form-group textarea {
+.floating-label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.floating-label-group input:focus + .floating-label,
+.floating-label-group textarea:focus + .floating-label,
+.floating-label-group input:not(:placeholder-shown) + .floating-label,
+.floating-label-group textarea:not(:placeholder-shown) + .floating-label {
+    top: -0.5rem;
+    left: 1rem;
+    transform: translateY(0);
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    opacity: 1;
+    background-color: var(--white);
+    padding: 0 0.25rem;
+}
+
+.floating-label-group input,
+.floating-label-group textarea {
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 1rem 0.9rem 1rem;
     border: 2px solid var(--bg-secondary);
     border-radius: var(--border-radius);
     font-size: 1rem;
     font-family: var(--font-secondary);
     transition: var(--transition);
+    background: var(--white);
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
+.floating-label-group input:focus,
+.floating-label-group textarea:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(46, 125, 102, 0.1);
 }
 
+.floating-label-group input:focus:invalid,
+.floating-label-group textarea:focus:invalid {
+    border-color: var(--accent-1);
+}
+
+
+.floating-label-group input::placeholder,
+.floating-label-group textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+.form-group input:focus + .form-label,
+.form-group textarea:focus + .form-label {
+    transform: translateY(-2px);
+}
+
+/* Accessibility: Invalid state */
+.floating-label-group input.invalid,
+.floating-label-group textarea.invalid {
+    border-color: var(--accent-1) !important;
+}
+
+
+.form-group input,
 .form-group textarea {
-    resize: vertical;
-    min-height: 120px;
+    border-color: var(--bg-secondary) !important;
+}
+
+.form-error {
+    margin-top: 0.25rem;
+    display: block;
 }
 
 /* ===============================
@@ -1131,6 +1188,10 @@ a:hover {
         grid-template-columns: 1fr;
     }
     
+    .form-label {
+        font-size: 0.9rem;
+    }
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;

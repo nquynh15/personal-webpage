@@ -6,6 +6,66 @@ document.addEventListener('DOMContentLoaded', function() {
     initContact();
 });
 
+function initFormValidation() {
+    const form = document.getElementById('contactForm');
+    const inputs = form.querySelectorAll('input, textarea');
+    
+    // Clear any initial invalid states (though novalidate prevents them)
+    inputs.forEach(input => {
+        input.classList.remove('invalid');
+    });
+    
+    // Validate on blur (add .invalid if not valid)
+    inputs.forEach(input => {
+        input.addEventListener('blur', () => {
+            if (input.value.trim() === '' || !input.checkValidity()) {
+                input.classList.add('invalid');
+            } else {
+                input.classList.remove('invalid');
+                const errorSpan = input.parentNode.querySelector('.form-error');
+                if (errorSpan) errorSpan.style.display = 'none';
+            }
+        });
+        
+        input.addEventListener('input', () => {
+            if (input.checkValidity() && input.value.trim() !== '') {
+                input.classList.remove('invalid');
+                const errorSpan = input.parentNode.querySelector('.form-error');
+                if (errorSpan) errorSpan.style.display = 'none';
+            }
+        });
+        
+        // Custom error message
+        const errorSpan = document.createElement('span');
+        errorSpan.className = 'form-error';
+        errorSpan.style.color = 'var(--accent-1)';
+        errorSpan.style.fontSize = '0.8rem';
+        errorSpan.style.display = 'none';
+        input.parentNode.appendChild(errorSpan);
+        
+        input.addEventListener('invalid', (e) => {
+            e.preventDefault();
+            errorSpan.textContent = input.validationMessage;
+            errorSpan.style.display = 'block';
+        });
+    });
+    
+    // Prevent submit if invalid, mark all
+    form.addEventListener('submit', (e) => {
+        let isValid = true;
+        inputs.forEach(input => {
+            if (input.value.trim() === '' || !input.checkValidity()) {
+                input.classList.add('invalid');
+                isValid = false;
+            }
+        });
+        if (!isValid) e.preventDefault();
+    });
+}
+
+// Call on load
+document.addEventListener('DOMContentLoaded', initFormValidation);
+
 function initContact() {
     initContactForm();
     initContactMethodsAnimation();

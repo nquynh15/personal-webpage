@@ -559,19 +559,23 @@
                     </div>
                 </div>
                 
-                <div class="contact-form">
+                <div class="contact-form" novalidate>
                     <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <div class="form-group floating-label-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name" class="floating-label">Your Name</label>
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <div class="form-group floating-label-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email" class="floating-label">Your Email</label>
                         </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <div class="form-group floating-label-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject" class="floating-label">Subject</label>
                         </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <div class="form-group floating-label-group">
+                            <textarea id="message" name="message" required rows="4"></textarea>
+                            <label for="message" class="floating-label">Your Message</label>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
