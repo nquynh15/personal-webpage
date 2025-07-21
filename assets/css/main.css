@@ -569,6 +569,43 @@ a:hover {
     color: var(--text-secondary);
 }
 
+.skills-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 2px 5px var(--shadow);
+}
+
+.filter-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px var(--shadow-hover);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 700;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px var(--shadow-hover);
+}
+
 /* ===============================
    PROJECTS SECTION
    =============================== */
@@ -1112,6 +1149,16 @@ a:hover {
     
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .skills-filter {
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
     }
     
     .language-skills {

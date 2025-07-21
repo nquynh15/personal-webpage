@@ -260,7 +260,6 @@ function initSkillsHoverEffects() {
 // SKILLS FILTERING (Optional)
 // ===============================
 function initSkillsFiltering() {
-    // Create filter buttons if needed
     const skillsContainer = document.querySelector('.skills-content');
     
     if (skillsContainer) {
@@ -271,7 +270,13 @@ function initSkillsFiltering() {
             
             // Add filter functionality
             initFilterFunctionality();
+            
+            console.log('✅ Skills filter initialized');
+        } else {
+            console.warn('❌ Failed to create filter buttons');
         }
+    } else {
+        console.warn('❌ .skills-content not found');
     }
 }
 
@@ -291,33 +296,55 @@ function initFilterFunctionality() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const skillCategories = document.querySelectorAll('.skills-category');
     
+    if (filterButtons.length === 0 || skillCategories.length === 0) {
+        console.warn('❌ Filter elements not found');
+        return;
+    }
+    
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const filter = this.dataset.filter;
+            const filter = this.dataset.filter.toLowerCase();  // "all", "programming", "languages"
             
             // Update active button
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
-            // Filter skill categories
+            // Filter skill categories with smooth transition
             skillCategories.forEach(category => {
+                const categoryType = category.querySelector('h3')?.textContent.toLowerCase() || '';
+                
+                let shouldShow = false;
+                
                 if (filter === 'all') {
+                    shouldShow = true;
+                } else if (filter === 'programming' && categoryType === 'programming languages') {
+                    shouldShow = true;
+                } else if (filter === 'languages' && categoryType === 'human languages') {
+                    shouldShow = true;
+                }
+                
+                if (shouldShow) {
                     category.style.display = 'block';
-                    category.classList.add('animate-fadeIn');
+                    category.style.opacity = '0';
+                    category.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        category.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        category.style.opacity = '1';
+                        category.style.transform = 'translateY(0)';
+                    }, 10);
                 } else {
-                    const categoryType = category.querySelector('h3').textContent.toLowerCase();
-                    
-                    if (categoryType.includes(filter)) {
-                        category.style.display = 'block';
-                        category.classList.add('animate-fadeIn');
-                    } else {
+                    category.style.transition = 'opacity 0.3s ease';
+                    category.style.opacity = '0';
+                    setTimeout(() => {
                         category.style.display = 'none';
-                        category.classList.remove('animate-fadeIn');
-                    }
+                    }, 300);
                 }
             });
         });
     });
+    
+    // ✅ Initial filter to 'all'
+    filterButtons[0].click();
 }
 
 // ===============================
