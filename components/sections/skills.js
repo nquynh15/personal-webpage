@@ -108,6 +108,10 @@ function initLanguageLevels() {
     languageItems.forEach(item => {
         const indicators = item.querySelectorAll('.level-indicator');
         const levelText = item.querySelector('.level-text');
+        const initialActiveCount = item.querySelectorAll('.level-indicator.active').length;
+        
+        // Persist initial markup state so animation can restore it after we clear classes
+        item.dataset.activeCount = String(initialActiveCount);
         
         // Store original state
         indicators.forEach(indicator => {
@@ -130,7 +134,7 @@ function initLanguageLevels() {
 
 function animateLanguageLevel(languageItem) {
     const indicators = languageItem.querySelectorAll('.level-indicator');
-    const activeCount = languageItem.querySelectorAll('.level-indicator.active').length;
+    const activeCount = parseInt(languageItem.dataset.activeCount || '0', 10);
     
     // Remove all active classes first
     indicators.forEach(indicator => {

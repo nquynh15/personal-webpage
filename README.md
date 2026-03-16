@@ -61,7 +61,7 @@ Your website will be available at `http://localhost:3000`
 This website includes the **Stagewise Toolbar** for enhanced development experience:
 
 ### Auto-Setup (Recommended)
-In Cursor IDE:
+In Visual Studio Code:
 1. Press `Cmd + Shift + P` (Mac) or `Ctrl + Shift + P` (Windows)
 2. Type `setupToolbar`
 3. Execute the command
