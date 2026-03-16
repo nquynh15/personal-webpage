@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ecommerce-platform",
+    "title": "E-commerce Platform",
+    "description": "A full-stack e-commerce solution built with modern web technologies",
+    "image": {
+      "src": "https://placehold.co/400x250?text=E-commerce+Platform&bg=2e7d66&color=ffffff",
+      "alt": "E-commerce Platform"
+    },
+    "technologies": ["React", "Node.js", "MongoDB"],
+    "links": {
+      "demo": "#",
+      "code": "#"
+    },
+    "features": [
+      "Product catalog with search and filtering",
+      "Shopping cart and checkout flow",
+      "User authentication and profiles",
+      "Admin dashboard for managing products and orders"
+    ]
+  },
+  {
+    "id": "task-management-app",
+    "title": "Task Management App",
+    "description": "A collaborative task management tool with real-time updates",
+    "image": {
+      "src": "https://placehold.co/400x250?text=Task+Management+App&bg=a3b18a&color=ffffff",
+      "alt": "Task Management App"
+    },
+    "technologies": ["Vue.js", "Firebase", "CSS3"],
+    "links": {
+      "demo": "#",
+      "code": "#"
+    },
+    "features": [
+      "Real-time task updates with collaboration",
+      "Drag-and-drop task organization",
+      "User roles and permissions",
+      "Responsive UI optimized for mobile"
+    ]
+  },
+  {
+    "id": "weather-dashboard",
+    "title": "Weather Dashboard",
+    "description": "A responsive weather app with beautiful animations and forecasts",
+    "image": {
+      "src": "https://placehold.co/400x250?text=Weather+Dashboard&bg=e76f51&color=ffffff",
+      "alt": "Weather Dashboard"
+    },
+    "technologies": ["JavaScript", "API", "SCSS"],
+    "links": {
+      "demo": "#",
+      "code": "#"
+    },
+    "features": [
+      "Current weather and hourly forecast",
+      "7-day forecast view",
+      "Location search with autocomplete",
+      "Animated weather states"
+    ]
+  },
+  {
+    "id": "portfolio-website",
+    "title": "Portfolio Website",
+    "description": "A creative portfolio website with stunning animations",
+    "image": {
+      "src": "https://placehold.co/400x250?text=Portfolio+Website&bg=c9b458&color=ffffff",
+      "alt": "Portfolio Website"
+    },
+    "technologies": ["HTML5", "CSS3", "JavaScript"],
+    "links": {
+      "demo": "#",
+      "code": "#"
+    },
+    "features": [
+      "Modern responsive layout",
+      "Smooth section navigation",
+      "Accessible components and ARIA labels",
+      "Optimized animations and interactions"
+    ]
+  }
+]

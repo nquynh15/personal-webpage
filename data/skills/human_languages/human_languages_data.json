@@ -1,0 +1,29 @@
+[
+  {
+    "name": "English",
+    "flag": {
+      "src": "./data/skills/human_languages/images/united-kingdom.png",
+      "alt": "English"
+    },
+    "levelText": "Intermediate",
+    "level": 4
+  },
+  {
+    "name": "Japanese",
+    "flag": {
+      "src": "./data/skills/human_languages/images/japan.png",
+      "alt": "Japanese"
+    },
+    "levelText": "Intermediate",
+    "level": 3
+  },
+  {
+    "name": "Vietnamese",
+    "flag": {
+      "src": "./data/skills/human_languages/images/vietnam.png",
+      "alt": "Vietnamese"
+    },
+    "levelText": "Native",
+    "level": 5
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "HTML",
+    "icon": {
+      "src": "./data/skills/programming_languages/images/html.png",
+      "alt": "HTML"
+    },
+    "progress": 65
+  },
+  {
+    "name": "CSS",
+    "icon": {
+      "src": "./data/skills/programming_languages/images/css-3.png",
+      "alt": "CSS"
+    },
+    "progress": 60
+  },
+  {
+    "name": "JavaScript",
+    "icon": {
+      "src": "./data/skills/programming_languages/images/js.png",
+      "alt": "JavaScript"
+    },
+    "progress": 55
+  },
+  {
+    "name": "Java",
+    "icon": {
+      "src": "./data/skills/programming_languages/images/java.png",
+      "alt": "Java"
+    },
+    "progress": 75
+  },
+  {
+    "name": "PHP",
+    "icon": {
+      "src": "./data/skills/programming_languages/images/php.png",
+      "alt": "PHP"
+    },
+    "progress": 75
+  }
+]

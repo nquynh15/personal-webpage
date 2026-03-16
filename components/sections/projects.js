@@ -2,19 +2,95 @@
 // PROJECTS COMPONENT
 // ===============================
 
-document.addEventListener('DOMContentLoaded', function() {
-    initProjects();
+let projectsData = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+    void initProjects();
 });
 
-function initProjects() {
-    initProjectCards();
-    initProjectFilters();
-    initProjectModal();
-    initProjectsIntersectionObserver();
-    initProjectsHoverEffects();
-    initProjectsLazyLoading();
-    
-    console.log('🚀 Projects component initialized');
+async function loadProjectsData() {
+    const response = await fetch('./data/projects/projects_data.json', { cache: 'no-cache' });
+    if (!response.ok) {
+        throw new Error(`Failed to load projects.json: ${response.status}`);
+    }
+    const data = await response.json();
+    return Array.isArray(data) ? data : [];
+}
+
+function escapeHtml(value) {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function safeUrl(url) {
+    if (!url || url === '#') return '#';
+    try {
+        const parsed = new URL(url, window.location.href);
+        if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return parsed.href;
+        return '#';
+    } catch {
+        return '#';
+    }
+}
+
+function renderProjectsGrid(data) {
+    const grid = document.querySelector('.projects-grid');
+    if (!grid) return;
+
+    grid.innerHTML = data
+        .map((project, index) => {
+            const title = escapeHtml(project.title ?? '');
+            const description = escapeHtml(project.description ?? '');
+            const imageSrc = safeUrl(project?.image?.src);
+            const imageAlt = escapeHtml(project?.image?.alt ?? project.title ?? 'Project image');
+            const demoUrl = safeUrl(project?.links?.demo);
+            const codeUrl = safeUrl(project?.links?.code);
+            const technologies = Array.isArray(project.technologies) ? project.technologies : [];
+            const techTags = technologies
+                .map((t) => `<span class="tech-tag">${escapeHtml(t)}</span>`)
+                .join('');
+            const features = Array.isArray(project.features) ? project.features : [];
+
+            const featuresJson = escapeHtml(JSON.stringify(features));
+            const demoTargetAttrs =
+                demoUrl === '#'
+                    ? ''
+                    : ' target="_blank" rel="noopener noreferrer"';
+            const codeTargetAttrs =
+                codeUrl === '#'
+                    ? ''
+                    : ' target="_blank" rel="noopener noreferrer"';
+
+            return `
+                <div class="project-card"
+                    data-project-id="${index}"
+                    data-demo-url="${escapeHtml(demoUrl)}"
+                    data-code-url="${escapeHtml(codeUrl)}"
+                    data-features="${featuresJson}">
+                    <div class="project-image">
+                        <img src="${escapeHtml(imageSrc)}" alt="${imageAlt}" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="${escapeHtml(demoUrl)}" class="project-link"${demoTargetAttrs}>View Demo</a>
+                                <a href="${escapeHtml(codeUrl)}" class="project-link"${codeTargetAttrs}>View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>${title}</h3>
+                        <p>${description}</p>
+                        <div class="project-tech">
+                            ${techTags}
+                        </div>
+                    </div>
+                </div>
+            `;
+        })
+        .join('');
 }
 
 // ===============================
@@ -39,7 +115,6 @@ function setupProjectCardData(card, index) {
     const techTags = card.querySelectorAll('.tech-tag');
     const technologies = Array.from(techTags).map(tag => tag.textContent.toLowerCase());
     
-    card.setAttribute('data-project-id', index);
     card.setAttribute('data-technologies', technologies.join(','));
     card.setAttribute('data-category', getProjectCategory(technologies));
 }
@@ -287,12 +362,14 @@ function populateModalContent(projectCard) {
     const title = projectCard.querySelector('.project-info h3').textContent;
     const description = projectCard.querySelector('.project-info p').textContent;
     const image = projectCard.querySelector('.project-image img').src;
+    const imageAlt = projectCard.querySelector('.project-image img').alt || 'Project image';
     const techTags = projectCard.querySelectorAll('.tech-tag');
     
     // Set basic content
     modal.querySelector('.modal-title').textContent = title;
     modal.querySelector('.modal-description').textContent = description;
     modal.querySelector('.modal-image img').src = image;
+    modal.querySelector('.modal-image img').alt = imageAlt;
     
     // Set tech tags
     const modalTechTags = modal.querySelector('.modal-tech-tags');
@@ -302,21 +379,44 @@ function populateModalContent(projectCard) {
         modalTechTags.appendChild(tagClone);
     });
     
-    // Set features (you would customize this based on your project data)
     const featuresList = modal.querySelector('.features-list');
-    featuresList.innerHTML = `
-        <li>Responsive design across all devices</li>
-        <li>Modern UI/UX with smooth animations</li>
-        <li>Optimized performance and loading speed</li>
-        <li>Cross-browser compatibility</li>
-    `;
+    const features = (() => {
+        try {
+            return JSON.parse(projectCard.getAttribute('data-features') || '[]');
+        } catch {
+            return [];
+        }
+    })();
+    featuresList.innerHTML =
+        Array.isArray(features) && features.length > 0
+            ? features.map((f) => `<li>${escapeHtml(f)}</li>`).join('')
+            : '<li>Details coming soon.</li>';
     
     // Set links
     const demoLink = modal.querySelector('.modal-demo');
     const codeLink = modal.querySelector('.modal-code');
     
-    demoLink.href = '#'; // You would set actual demo URL
-    codeLink.href = '#'; // You would set actual code URL
+    const demoUrl = projectCard.getAttribute('data-demo-url') || '#';
+    const codeUrl = projectCard.getAttribute('data-code-url') || '#';
+
+    demoLink.href = demoUrl;
+    codeLink.href = codeUrl;
+
+    if (demoUrl !== '#') {
+        demoLink.target = '_blank';
+        demoLink.rel = 'noopener noreferrer';
+    } else {
+        demoLink.removeAttribute('target');
+        demoLink.removeAttribute('rel');
+    }
+
+    if (codeUrl !== '#') {
+        codeLink.target = '_blank';
+        codeLink.rel = 'noopener noreferrer';
+    } else {
+        codeLink.removeAttribute('target');
+        codeLink.removeAttribute('rel');
+    }
 }
 
 // ===============================
@@ -473,7 +573,21 @@ function debounce(func, wait) {
 }
 
 // Initialize all projects functionality
-function initProjects() {
+async function initProjects() {
+    const grid = document.querySelector('.projects-grid');
+    const hasFallbackProjects = !!grid?.querySelector('.project-card');
+
+    try {
+        projectsData = await loadProjectsData();
+        if (projectsData.length > 0) {
+            renderProjectsGrid(projectsData);
+        }
+    } catch (err) {
+        if (!hasFallbackProjects) {
+            console.warn('❌ Failed to load projects JSON', err);
+        }
+    }
+
     initProjectCards();
     initProjectFilters();
     initProjectModal();

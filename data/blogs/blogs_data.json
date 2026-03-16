@@ -1,0 +1,35 @@
+[
+  {
+    "title": "10 Essential Web Development Tips for Beginners",
+    "excerpt": "A comprehensive guide to help new developers start their journey in web development...",
+    "category": "Web Development",
+    "date": "March 15, 2024",
+    "image": {
+      "src": "https://placehold.co/350x200?text=Web+Development+Tips&bg=2e7d66&color=ffffff",
+      "alt": "Web Development Tips"
+    },
+    "url": "#"
+  },
+  {
+    "title": "JavaScript Trends to Watch in 2024",
+    "excerpt": "Exploring the latest trends and technologies in the JavaScript ecosystem...",
+    "category": "JavaScript",
+    "date": "March 10, 2024",
+    "image": {
+      "src": "https://placehold.co/350x200?text=JavaScript+Trends&bg=a3b18a&color=ffffff",
+      "alt": "JavaScript Trends"
+    },
+    "url": "#"
+  },
+  {
+    "title": "Creating Better User Experiences",
+    "excerpt": "How to design interfaces that users love and find intuitive to use...",
+    "category": "Design",
+    "date": "March 5, 2024",
+    "image": {
+      "src": "https://placehold.co/350x200?text=UI+UX+Design&bg=e76f51&color=ffffff",
+      "alt": "UI/UX Design"
+    },
+    "url": "#"
+  }
+]

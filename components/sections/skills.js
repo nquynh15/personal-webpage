@@ -2,18 +2,120 @@
 // SKILLS COMPONENT
 // ===============================
 
-document.addEventListener('DOMContentLoaded', function() {
-    initSkills();
+document.addEventListener('DOMContentLoaded', () => {
+    void initSkills();
 });
 
-function initSkills() {
-    initProgressBars();
-    initLanguageLevels();
-    initSkillsIntersectionObserver();
-    initSkillsHoverEffects();
-    initSkillsFiltering();
-    
-    console.log('🎯 Skills component initialized');
+async function loadJsonArray(url) {
+    const response = await fetch(url, { cache: 'no-cache' });
+    if (!response.ok) {
+        throw new Error(`Failed to load JSON: ${response.status} (${url})`);
+    }
+    const data = await response.json();
+    return Array.isArray(data) ? data : [];
+}
+
+function escapeHtml(value) {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function safeUrl(url) {
+    if (!url || url === '#') return '#';
+    try {
+        const parsed = new URL(url, window.location.href);
+        if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return parsed.href;
+        return '#';
+    } catch {
+        // Allow relative paths like ./assets/icons/...
+        if (typeof url === 'string' && (url.startsWith('./') || url.startsWith('../') || url.startsWith('/'))) {
+            return url;
+        }
+        return '#';
+    }
+}
+
+function clampNumber(value, min, max, fallback) {
+    const n = typeof value === 'number' ? value : parseInt(String(value), 10);
+    if (Number.isNaN(n)) return fallback;
+    return Math.min(max, Math.max(min, n));
+}
+
+function renderProgrammingLanguages(skills) {
+    const grid = document.querySelector('.skills-category .skills-grid');
+    if (!grid) return;
+
+    if (!Array.isArray(skills) || skills.length === 0) {
+        grid.innerHTML = '';
+        return;
+    }
+
+    grid.innerHTML = skills
+        .map((skill) => {
+            const name = escapeHtml(skill.name ?? '');
+            const iconSrc = safeUrl(skill?.icon?.src);
+            const iconAlt = escapeHtml(skill?.icon?.alt ?? skill.name ?? 'Skill icon');
+            const progress = clampNumber(skill.progress, 0, 100, 0);
+
+            return `
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <img src="${escapeHtml(iconSrc)}" alt="${iconAlt}" loading="lazy">
+                    </div>
+                    <div class="skill-info">
+                        <h4>${name}</h4>
+                        <div class="skill-progress">
+                            <div class="progress-bar" data-progress="${progress}"></div>
+                        </div>
+                        <span class="skill-level"></span>
+                    </div>
+                </div>
+            `;
+        })
+        .join('');
+}
+
+function renderHumanLanguages(languages) {
+    const container = document.querySelector('.skills-category .language-skills');
+    if (!container) return;
+
+    if (!Array.isArray(languages) || languages.length === 0) {
+        container.innerHTML = '';
+        return;
+    }
+
+    container.innerHTML = languages
+        .map((lang) => {
+            const name = escapeHtml(lang.name ?? '');
+            const flagSrc = safeUrl(lang?.flag?.src);
+            const flagAlt = escapeHtml(lang?.flag?.alt ?? lang.name ?? 'Language flag');
+            const level = clampNumber(lang.level, 0, 5, 0);
+            const levelText = escapeHtml(lang.levelText ?? '');
+
+            const indicators = Array.from({ length: 5 })
+                .map((_, idx) => `<div class="level-indicator${idx < level ? ' active' : ''}"></div>`)
+                .join('');
+
+            return `
+                <div class="language-item">
+                    <div class="language-flag">
+                        <img src="${escapeHtml(flagSrc)}" alt="${flagAlt}" loading="lazy">
+                    </div>
+                    <div class="language-info">
+                        <h4>${name}</h4>
+                        <div class="language-level">
+                            ${indicators}
+                        </div>
+                        <span class="level-text">${levelText}</span>
+                    </div>
+                </div>
+            `;
+        })
+        .join('');
 }
 
 // ===============================
@@ -441,7 +543,30 @@ function initSkillsAccessibility() {
 }
 
 // Initialize all skills functionality
-function initSkills() {
+async function initSkills() {
+    const programmingGrid = document.querySelector('.skills-grid');
+    const humanLanguagesContainer = document.querySelector('.language-skills');
+    const hasFallbackProgramming = !!programmingGrid?.querySelector('.skill-item');
+    const hasFallbackHuman = !!humanLanguagesContainer?.querySelector('.language-item');
+
+    try {
+        const [programming, humanLanguages] = await Promise.all([
+            loadJsonArray('./data/skills/programming_languages/programming_languages_data.json'),
+            loadJsonArray('./data/skills/human_languages/human_languages_data.json')
+        ]);
+
+        if (programming.length > 0) {
+            renderProgrammingLanguages(programming);
+        }
+        if (humanLanguages.length > 0) {
+            renderHumanLanguages(humanLanguages);
+        }
+    } catch (err) {
+        if (!hasFallbackProgramming && !hasFallbackHuman) {
+            console.warn('❌ Failed to load skills JSON', err);
+        }
+    }
+
     initProgressBars();
     initLanguageLevels();
     initSkillsIntersectionObserver();
