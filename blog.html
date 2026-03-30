@@ -74,7 +74,7 @@
         <div class="features-grid">
             <div class="feature-card feature-1">
                 <div class="feature-icon-wrapper">
-                    ♥
+                    <img src="assets/icons/heart-icon.svg" alt="Heart Icon">
                 </div>
                 <h3 class="feature-title">Đam mê viết lách</h3>
                 <p class="feature-desc">Chia sẻ những câu chuyện và trải nghiệm của bản thân một cách chân thành nhất
@@ -82,14 +82,14 @@
             </div>
             <div class="feature-card feature-2">
                 <div class="feature-icon-wrapper">
-                    📸
+                    <img src="assets/icons/camera-icon.svg" alt="Camera Icon">
                 </div>
                 <h3 class="feature-title">Yêu thích nhiếp ảnh</h3>
                 <p class="feature-desc">Ghi lại những khoảnh khắc đẹp trong cuộc sống bằng ống kính của tôi</p>
             </div>
             <div class="feature-card feature-3">
                 <div class="feature-icon-wrapper">
-                    ✨
+                    <img src="assets/icons/sparkle-icon.svg" alt="Sparkle Icon">
                 </div>
                 <h3 class="feature-title">Luôn học hỏi</h3>
                 <p class="feature-desc">Mỗi ngày là một cơ hội mới để học điều gì đó và phát triển bản thân</p>
@@ -105,46 +105,18 @@
     <script src="components/layout/footer/footer.js"></script>
     <script src="components/layout/navbar/navbar.js"></script>
 
-    <!-- Scripts -->
+    <!-- Shared Components -->
+    <script src="components/ui/blog-card.js"></script>
+
+    <!-- Initialize Blog Cards -->
     <script>
-        async function loadBlogPosts() {
-            const grid = document.getElementById('recent-posts-grid');
-            if (!grid) return;
-
-            try {
-                const response = await fetch('./data/blogs/blogs_data.json', { cache: 'no-cache' });
-                if (!response.ok) throw new Error('Failed to load JSON');
-
-                const data = await response.json();
-                const recentPosts = data.slice(0, 3); // Get first 3 posts
-
-                grid.innerHTML = recentPosts.map(post => {
-                    const imgSrc = post.image?.src || 'https://placehold.co/400x250';
-                    const imgAlt = post.image?.alt || post.title;
-                    const url = post.url || '#';
-
-                    return `
-                        <article class="blog-card">
-                            <div class="blog-card-image">
-                                <span class="blog-category-badge">${post.category}</span>
-                                <img src="${imgSrc}" alt="${imgAlt}">
-                            </div>
-                            <div class="blog-card-content">
-                                <span class="blog-date">${post.date}</span>
-                                <h3 class="blog-card-title">${post.title}</h3>
-                                <p class="blog-card-excerpt">${post.excerpt}</p>
-                                <a href="${url}" class="read-more">Đọc thêm &rarr;</a>
-                            </div>
-                        </article>
-                    `;
-                }).join('');
-            } catch (err) {
-                console.error('Error loading blog posts:', err);
-                grid.innerHTML = '<p>Không thể tải bài viết lúc này. Vui lòng thử lại sau.</p>';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', loadBlogPosts);
+        document.addEventListener('DOMContentLoaded', () => {
+            BlogCardComponent.init({
+                selector: '#recent-posts-grid',
+                variant: 'blog',
+                limit: 3
+            });
+        });
     </script>
 </body>
 

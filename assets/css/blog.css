@@ -339,6 +339,7 @@ body.blog-page {
   margin-bottom: 1.5rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex: 1;
@@ -404,25 +405,16 @@ body.blog-page {
 .features-section .feature-icon-wrapper {
   width: 56px;
   height: 56px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-.features-section .feature-1 .feature-icon-wrapper {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-}
-
-.features-section .feature-2 .feature-icon-wrapper {
-  background: linear-gradient(135deg, var(--accent-2), #d4a843);
-}
-
-.features-section .feature-3 .feature-icon-wrapper {
-  background: linear-gradient(135deg, var(--accent-1), #c45a3f);
+.features-section .feature-icon-wrapper img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
 }
 
 .features-section .feature-title {
