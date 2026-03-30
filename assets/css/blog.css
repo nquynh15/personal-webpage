@@ -1,35 +1,8 @@
-:root {
-  --blog-pink: #df369d;
-  --blog-purple: #9d4edd;
-  --blog-bg: #fcfafe;
-  --blog-text: #333333;
-  --blog-text-light: #666666;
-  --blog-white: #ffffff;
-  --blog-radius: 16px;
-  --blog-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
 /* === PAGE-LEVEL OVERRIDES === */
-/* Override main.css body/globals for blog page */
+/* Minimal overrides — inherit from main.css as much as possible */
 body.blog-page {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--blog-bg);
-  color: var(--blog-text);
-  margin: 0;
-  line-height: 1.6;
-}
-
-body.blog-page h1,
-body.blog-page h2,
-body.blog-page h3,
-body.blog-page h4,
-body.blog-page h5,
-body.blog-page h6 {
-  font-family: 'Inter', sans-serif;
-}
-
-body.blog-page a:hover {
-  text-decoration: none;
+  background-color: var(--bg-light);
+  color: var(--text-primary);
 }
 
 /* === HERO SECTION === */
@@ -41,9 +14,10 @@ body.blog-page a:hover {
   max-width: 1200px;
   margin: 0 auto;
   gap: 4rem;
+  min-height: 70vh;
 }
 
-/* Override main.css .hero-content grid */
+/* Override main.css .hero-content grid for blog layout */
 .blog-hero .hero-content {
   flex: 1;
   display: block;
@@ -56,173 +30,229 @@ body.blog-page a:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background-color: #fff0f6;
-  color: var(--blog-pink);
+  background-color: var(--bg-secondary);
+  color: var(--primary-color);
   padding: 0.4rem 1rem;
   border-radius: 2rem;
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
+  font-family: var(--font-secondary);
 }
 
 /* Override main.css .hero-title */
 .blog-hero .hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin: 0 0 1rem;
-  color: var(--blog-text);
-  font-family: 'Inter', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
 }
 
 .blog-hero .hero-title .gradient-text {
-  background: linear-gradient(90deg, var(--blog-pink), var(--blog-purple));
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .blog-hero .hero-desc {
-  color: var(--blog-text-light);
-  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
   margin-bottom: 2rem;
   max-width: 90%;
+  line-height: 1.8;
+  font-family: var(--font-secondary);
 }
 
 /* Override main.css .hero-buttons */
 .blog-hero .hero-buttons {
   display: flex;
   gap: 1rem;
-  margin-top: 0;
+  margin-top: 2rem;
 }
 
 .blog-hero .btn-gradient {
-  background: linear-gradient(90deg, var(--blog-pink), var(--blog-purple));
-  color: white;
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--white);
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
+  padding: 12px 30px;
+  border-radius: var(--border-radius);
   font-weight: 500;
-  box-shadow: 0 4px 15px rgba(223, 54, 157, 0.3);
-  transition: transform 0.3s ease;
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  box-shadow: 0 5px 15px var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-hero .btn-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.blog-hero .btn-gradient:hover::before {
+  left: 100%;
 }
 
 .blog-hero .btn-gradient:hover {
+  background-color: #256b57;
   transform: translateY(-2px);
-  color: white;
+  box-shadow: 0 5px 15px var(--shadow-hover);
+  color: var(--white);
   text-decoration: none;
 }
 
 .blog-hero .btn-outline {
+  display: inline-block;
   background: transparent;
-  color: var(--blog-pink);
-  border: 1px solid var(--blog-pink);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
+  padding: 12px 30px;
+  border-radius: var(--border-radius);
   font-weight: 500;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  transition: var(--transition);
 }
 
 .blog-hero .btn-outline:hover {
-  background: #fff0f6;
-  color: var(--blog-pink);
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-2px);
   text-decoration: none;
 }
 
-/* Override main.css .hero-image (which sets display:flex) */
+/* Hero Image */
 .blog-hero .hero-image-wrapper {
   flex: 1;
   position: relative;
+  animation: fadeInRight 1s ease-out;
 }
 
 .blog-hero .hero-image-wrapper .hero-image {
   width: 100%;
-  border-radius: var(--blog-radius);
-  box-shadow: var(--blog-shadow);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px var(--shadow);
   object-fit: cover;
   aspect-ratio: 16/10;
   display: block;
+  transition: var(--transition);
+}
+
+.blog-hero .hero-image-wrapper .hero-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px var(--shadow-hover);
 }
 
 .blog-hero .floating-card {
   position: absolute;
   bottom: -20px;
   left: -20px;
-  background: white;
+  background: var(--white);
   padding: 1rem;
-  border-radius: 12px;
-  box-shadow: var(--blog-shadow);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px var(--shadow);
   display: flex;
   align-items: center;
   gap: 0.75rem;
   z-index: 2;
+  transition: var(--transition);
+}
+
+.blog-hero .floating-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px var(--shadow-hover);
 }
 
 .blog-hero .floating-card-icon {
-  color: var(--blog-pink);
+  color: var(--accent-1);
   font-size: 1.5rem;
 }
 
 .blog-hero .floating-card-text small {
   display: block;
-  color: var(--blog-text-light);
+  color: var(--text-secondary);
   font-size: 0.75rem;
+  font-family: var(--font-secondary);
 }
 
 .blog-hero .floating-card-text strong {
   display: block;
   font-size: 0.875rem;
-  color: var(--blog-text);
-  font-family: 'Inter', sans-serif;
+  color: var(--primary-color);
+  font-family: var(--font-primary);
 }
 
 
 /* === RECENT POSTS SECTION === */
 .recent-posts {
-  padding: 4rem 5%;
+  padding: var(--section-padding);
   max-width: 1200px;
   margin: 0 auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: var(--bg-secondary);
 }
 
 .recent-posts .section-header-flex {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
-/* Override main.css .section-title */
+/* Use main.css section-title style with green color + gradient underline */
 .recent-posts .section-title {
-  font-size: 2rem;
-  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-family: var(--font-primary);
   margin: 0 0 0.5rem;
-  color: var(--blog-text);
+  color: var(--primary-color);
 }
 
-/* Remove the ::after underline from main.css */
+/* Keep the gradient underline from main.css */
 .recent-posts .section-title::after {
-  display: none;
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-1));
+  margin: 1rem 0;
+  border-radius: 2px;
 }
 
 .recent-posts .section-subtitle {
-  color: var(--blog-text-light);
+  color: var(--text-secondary);
   margin: 0;
   max-width: none;
+  font-family: var(--font-secondary);
 }
 
 .recent-posts .view-all-link {
-  color: var(--blog-pink);
+  color: var(--accent-1);
   text-decoration: none;
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
+  font-family: var(--font-secondary);
+  transition: var(--transition);
 }
 
 .recent-posts .view-all-link:hover {
-  text-decoration: underline;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
 /* Override main.css .blog-grid */
@@ -234,18 +264,18 @@ body.blog-page a:hover {
 
 /* Override main.css .blog-card */
 .recent-posts .blog-card {
-  background: white;
-  border-radius: var(--blog-radius);
+  background: var(--white);
+  border-radius: var(--border-radius);
   overflow: hidden;
-  box-shadow: var(--blog-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px var(--shadow);
+  transition: var(--transition);
   display: flex;
   flex-direction: column;
 }
 
 .recent-posts .blog-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px var(--shadow-hover);
 }
 
 .recent-posts .blog-card-image {
@@ -259,18 +289,24 @@ body.blog-page a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: var(--transition);
+}
+
+.recent-posts .blog-card:hover .blog-card-image img {
+  transform: scale(1.05);
 }
 
 .recent-posts .blog-category-badge {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--blog-pink);
+  background-color: var(--primary-color);
+  color: var(--white);
   padding: 0.25rem 0.75rem;
-  border-radius: 2rem;
-  font-size: 0.75rem;
-  font-weight: 600;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: var(--font-secondary);
 }
 
 .recent-posts .blog-card-content {
@@ -281,45 +317,51 @@ body.blog-page a:hover {
 }
 
 .recent-posts .blog-date {
-  color: var(--blog-text-light);
-  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
   margin-bottom: 0.5rem;
   display: block;
+  font-family: var(--font-secondary);
 }
 
 .recent-posts .blog-card-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin: 0 0 0.5rem;
-  color: var(--blog-text);
-  line-height: 1.4;
-  font-family: 'Inter', sans-serif;
+  color: var(--primary-color);
+  line-height: 1.3;
+  font-family: var(--font-primary);
+  font-weight: 600;
 }
 
 .recent-posts .blog-card-excerpt {
-  color: var(--blog-text-light);
-  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
   margin-bottom: 1.5rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex: 1;
+  line-height: 1.6;
+  font-family: var(--font-secondary);
 }
 
 /* Override main.css .read-more */
 .recent-posts .read-more {
-  color: var(--blog-pink);
+  color: var(--accent-1);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  transition: var(--transition);
+  font-family: var(--font-secondary);
 }
 
 .recent-posts .read-more:hover {
-  text-decoration: underline;
-  color: var(--blog-pink);
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
 /* === FEATURES SECTION === */
@@ -337,25 +379,32 @@ body.blog-page a:hover {
 
 .features-section .feature-card {
   padding: 2rem;
-  border-radius: var(--blog-radius);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  box-shadow: 0 5px 15px var(--shadow);
+}
+
+.features-section .feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px var(--shadow-hover);
 }
 
 .features-section .feature-1 {
-  background-color: #fff5f8;
+  background: linear-gradient(135deg, var(--white) 0%, var(--bg-secondary) 100%);
 }
 
 .features-section .feature-2 {
-  background-color: #f8f5ff;
+  background: linear-gradient(135deg, var(--white) 0%, #faf5eb 100%);
 }
 
 .features-section .feature-3 {
-  background-color: #f2f8ff;
+  background: linear-gradient(135deg, var(--white) 0%, #f5ebe8 100%);
 }
 
 .features-section .feature-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -365,29 +414,31 @@ body.blog-page a:hover {
 }
 
 .features-section .feature-1 .feature-icon-wrapper {
-  background-color: #df369d;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
 }
 
 .features-section .feature-2 .feature-icon-wrapper {
-  background-color: #9d4edd;
+  background: linear-gradient(135deg, var(--accent-2), #d4a843);
 }
 
 .features-section .feature-3 .feature-icon-wrapper {
-  background-color: #3a86ff;
+  background: linear-gradient(135deg, var(--accent-1), #c45a3f);
 }
 
 .features-section .feature-title {
-  font-size: 1.2rem;
-  margin: 0 0 0.5rem;
-  font-weight: 700;
-  font-family: 'Inter', sans-serif;
-  color: var(--blog-text);
+  font-size: 1.5rem;
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-primary);
+  color: var(--primary-color);
 }
 
 .features-section .feature-desc {
-  color: var(--blog-text-light);
-  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
   margin: 0;
+  line-height: 1.6;
+  font-family: var(--font-secondary);
 }
 
 /* === RESPONSIVE === */
@@ -395,15 +446,40 @@ body.blog-page a:hover {
   .blog-hero {
     flex-direction: column;
     padding: 2rem 5%;
+    min-height: auto;
+    gap: 2rem;
   }
 
   .blog-hero .hero-title {
     font-size: 2.5rem;
   }
 
+  .blog-hero .hero-desc {
+    max-width: 100%;
+  }
+
+  .blog-hero .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .recent-posts .section-header-flex {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+
+  .recent-posts .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-section .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-hero .hero-title {
+    font-size: 2rem;
   }
 }
