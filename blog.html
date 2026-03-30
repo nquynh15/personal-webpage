@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger's Corner - Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/blog.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="blog-navbar">
+        <a href="blog.html" class="blog-logo">
+            <div class="blog-logo-icon">B</div>
+            Blogger's Corner
+        </a>
+        <ul class="blog-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="blog-hero">
+        <div class="hero-content">
+            <span class="hero-badge">
+                ✨ Chào mừng đến với blog của tôi
+            </span>
+            <h1 class="hero-title">
+                Xin chào! Tôi là một <br>
+                <span class="gradient-text">Blogger</span>
+            </h1>
+            <p class="hero-desc">
+                Đang chia sẻ những câu chuyện của tôi về cuộc sống, sở thích và hành trình học tập. Hãy cùng tôi khám
+                phá thế giới qua góc nhìn của một người mới bắt đầu nhé! ✨
+            </p>
+            <div class="hero-buttons">
+                <a href="#recent-posts" class="btn-gradient">Xem các bài viết &rarr;</a>
+                <a href="index.html#about" class="btn-outline">Về tôi</a>
+            </div>
+        </div>
+        <div class="hero-image-wrapper">
+            <img src="assets/images/profile-photo.jpg" alt="Profile" class="hero-image">
+            <div class="floating-card">
+                <div class="floating-card-icon">💖</div>
+                <div class="floating-card-text">
+                    <small>Đam mê</small>
+                    <strong>Viết lách & Sáng tạo</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Posts Section -->
+    <section class="recent-posts" id="recent-posts">
+        <div class="section-header-flex">
+            <div>
+                <h2 class="section-title">Bài viết gần đây</h2>
+                <p class="section-subtitle">Những câu chuyện mới nhất từ blog của tôi</p>
+            </div>
+            <a href="#" class="view-all-link">Xem tất cả &rarr;</a>
+        </div>
+        <div class="blog-grid" id="recent-posts-grid">
+            <!-- Dynamic content loaded from JSON -->
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card feature-1">
+                <div class="feature-icon-wrapper">
+                    ♥
+                </div>
+                <h3 class="feature-title">Đam mê viết lách</h3>
+                <p class="feature-desc">Chia sẻ những câu chuyện và trải nghiệm của bản thân một cách chân thành nhất
+                </p>
+            </div>
+            <div class="feature-card feature-2">
+                <div class="feature-icon-wrapper">
+                    📸
+                </div>
+                <h3 class="feature-title">Yêu thích nhiếp ảnh</h3>
+                <p class="feature-desc">Ghi lại những khoảnh khắc đẹp trong cuộc sống bằng ống kính của tôi</p>
+            </div>
+            <div class="feature-card feature-3">
+                <div class="feature-icon-wrapper">
+                    ✨
+                </div>
+                <h3 class="feature-title">Luôn học hỏi</h3>
+                <p class="feature-desc">Mỗi ngày là một cơ hội mới để học điều gì đó và phát triển bản thân</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="blog-footer">
+        <p>&copy; 2026 Blogger's Corner. Made with ❤️</p>
+        <p>Follow your dreams and share your story</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        async function loadBlogPosts() {
+            const grid = document.getElementById('recent-posts-grid');
+            if (!grid) return;
+
+            try {
+                const response = await fetch('./data/blogs/blogs_data.json', { cache: 'no-cache' });
+                if (!response.ok) throw new Error('Failed to load JSON');
+
+                const data = await response.json();
+                const recentPosts = data.slice(0, 3); // Get first 3 posts
+
+                grid.innerHTML = recentPosts.map(post => {
+                    const imgSrc = post.image?.src || 'https://placehold.co/400x250';
+                    const imgAlt = post.image?.alt || post.title;
+                    const url = post.url || '#';
+
+                    return `
+                        <article class="blog-card">
+                            <div class="blog-card-image">
+                                <span class="blog-category-badge">${post.category}</span>
+                                <img src="${imgSrc}" alt="${imgAlt}">
+                            </div>
+                            <div class="blog-card-content">
+                                <span class="blog-date">${post.date}</span>
+                                <h3 class="blog-card-title">${post.title}</h3>
+                                <p class="blog-card-excerpt">${post.excerpt}</p>
+                                <a href="${url}" class="read-more">Đọc thêm &rarr;</a>
+                            </div>
+                        </article>
+                    `;
+                }).join('');
+            } catch (err) {
+                console.error('Error loading blog posts:', err);
+                grid.innerHTML = '<p>Không thể tải bài viết lúc này. Vui lòng thử lại sau.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadBlogPosts);
+    </script>
+</body>
+
+</html>
