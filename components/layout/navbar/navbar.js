@@ -146,24 +146,35 @@ class NavbarComponent {
             
             this.lastScrollTop = scrollTop;
             
-            // Active link highlighting - uses cached sections
-            const scrollPosition = scrollTop + 100;
-            
-            this.sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    this.navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        
-                        if (link.getAttribute('href') === '#' + sectionId) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
+            // Active link highlighting - only on pages with anchor nav links
+            // On pages like blog.html, nav links point to other pages (e.g. index.html#about)
+            // so scroll-based highlighting should be skipped to preserve the initial active state
+            const hasAnchorNavLinks = Array.from(this.navLinks).some(link => {
+                const href = link.getAttribute('href');
+                if (!href?.match(/^#[a-z]/)) return false;
+                // Only count as anchor nav if the target section actually exists on the page
+                try { return !!document.querySelector('section' + href); } catch(e) { return false; }
             });
+            
+            if (hasAnchorNavLinks) {
+                const scrollPosition = scrollTop + 100;
+                
+                this.sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        this.navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
             
             this.ticking = false;
         };

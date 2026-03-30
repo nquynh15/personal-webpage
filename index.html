@@ -22,42 +22,8 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Nguyen Thi Quynh</h2>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#blog" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#services" class="nav-link">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation (rendered by navbar-render.js) -->
+    <div id="navbar-placeholder" data-active-page="home"></div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -361,41 +327,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Nguyen Thi Quynh</h3>
-                    <p>Software Developer passionate about creating beautiful and functional web experiences.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow Me</h4>
-                    <div class="social-links">
-                        <a href="https://github.com/nquynh15" class="social-link">GitHub</a>
-                        <a href="https://www.linkedin.com/in/quynh-nguyen-850876222/" class="social-link">LinkedIn</a>
-                        <a href="https://www.facebook.com/quynhnguyen.nyukina15" class="social-link">Facebook</a>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link">Tiktok</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Nguyen Thi Quynh. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer (rendered by footer.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Layout Renderers (must load first) -->
+    <script src="components/layout/navbar/navbar-render.js"></script>
+    <script src="components/layout/footer/footer.js"></script>
 
     <!-- JavaScript Files -->
     <script src="components/layout/navbar/navbar.js"></script>
