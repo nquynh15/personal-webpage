@@ -157,8 +157,8 @@ body.blog-page {
 
 .blog-hero .floating-card {
   position: absolute;
-  bottom: -20px;
-  left: -20px;
+  bottom: -32px;
+  left: -48px;
   background: var(--white);
   padding: 1rem;
   border-radius: var(--border-radius);

@@ -1,0 +1,335 @@
+/* === BLOG - ABOUT ME PAGE STYLES === */
+
+.blog-about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    /* Soft pale pinkish/purple background based on image layout context */
+    background-color: #fbf9fc;
+}
+
+body.blog-page .blog-about-container {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
+
+/* Base text overrides */
+.blog-about-container h1,
+.blog-about-container h2,
+.blog-about-container h3,
+.blog-about-container h4 {
+    color: var(--primary-color);
+    font-family: var(--font-primary);
+}
+
+/* --- Hero Header Section --- */
+.about-hero-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.about-page-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+}
+
+.about-page-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-family: var(--font-secondary);
+}
+
+/* --- Content Section --- */
+.about-content-section {
+    margin-bottom: 5rem;
+}
+
+.about-card-split {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image-side {
+    flex: 1;
+    position: relative;
+}
+
+.about-img-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.about-img-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    background: #fdf2f8;
+    /* Soft pink background */
+    border-radius: 30px;
+    z-index: -1;
+}
+
+.about-profile-img {
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+.about-text-side {
+    flex: 1.2;
+}
+
+.about-greeting {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.about-text-side p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-secondary);
+}
+
+/* Tags */
+.about-tags {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.tag-icon {
+    font-size: 1.1rem;
+}
+
+.tag-pink {
+    background-color: #fdf2f8;
+    color: #db2777;
+}
+
+.tag-purple {
+    background-color: #faf5ff;
+    color: #9333ea;
+}
+
+.tag-blue {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+/* --- Section Titles --- */
+.about-section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-family: var(--font-primary);
+    position: relative;
+}
+
+.about-section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-1));
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+/* --- Skills Section --- */
+.about-skills-section {
+    margin-bottom: 5rem;
+}
+
+.skills-card {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-row {
+    margin-bottom: 2rem;
+}
+
+.skill-row:last-child {
+    margin-bottom: 0;
+}
+
+.skill-label-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.skill-name {
+    color: var(--text-primary);
+}
+
+.skill-percent {
+    color: #d946ef;
+    /* Bright pink/purple number */
+}
+
+.progress-track {
+    width: 100%;
+    height: 12px;
+    background-color: #f3f4f6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ec4899, #a855f7);
+    /* Pink to Purple gradient */
+    border-radius: 10px;
+    transition: width 1.5s ease;
+}
+
+/* --- Hobbies Section --- */
+.about-hobbies-section {
+    margin-bottom: 5rem;
+}
+
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hobby-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.hobby-card:hover {
+    transform: translateY(-5px);
+}
+
+.hobby-icon {
+    margin-bottom: 1rem;
+}
+
+.hobby-card span {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.hobby-pink-card {
+    background-color: #fdf2f8;
+    color: #db2777;
+}
+
+.hobby-purple-card {
+    background-color: #faf5ff;
+    color: #9333ea;
+}
+
+.hobby-blue-card {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+/* --- Quote Section --- */
+.about-quote-section {
+    margin-bottom: 4rem;
+}
+
+.quote-banner {
+    background: linear-gradient(135deg, #ec4899, #a855f7);
+    /* Pink to Purple */
+    padding: 4rem 2rem;
+    border-radius: 24px;
+    text-align: center;
+    color: var(--white);
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 15px 40px rgba(168, 85, 247, 0.25);
+}
+
+.quote-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white) !important;
+}
+
+.quote-author {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0;
+    color: white;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 900px) {
+    .about-card-split {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hobbies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .about-page-title {
+        font-size: 2.5rem;
+    }
+
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .quote-text {
+        font-size: 1.5rem;
+    }
+}

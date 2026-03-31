@@ -34,7 +34,7 @@
                 href = item.href; // full link to other page
             }
 
-            const activeClass = (!isHomePage && item.page === activePage) ? ' active' : '';
+            const activeClass = (!isHomePage && (item.page === activePage || (item.label === 'About' && activePage === 'about'))) ? ' active' : '';
 
             return `
                 <li class="nav-item">
