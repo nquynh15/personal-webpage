@@ -91,26 +91,29 @@ The toolbar configuration is in `package.json`:
 ## 📁 Project Structure
 
 ```
-personalwebsite_v2/
-├── index.html                 # Main HTML file
-├── package.json              # Project configuration
-├── README.md                 # This file
+personal-webpage/
+├── index.html                 # Main Portfolio Landing Page
+├── blog.html                  # Blog Dashboard
+├── blog-about-me.html         # Detailed "About Me" page (Blog)
+├── package.json               # Config & dependencies
+├── README.md                  # This file
 ├── assets/
 │   ├── css/
-│   │   ├── main.css          # Main styles
-│   │   ├── components.css    # Component-specific styles
-│   │   └── animations.css    # Animation definitions
+│   │   ├── main.css           # Global layout & variables
+│   │   ├── blog.css           # Blog dashboard styles
+│   │   ├── blog-about.css     # About Me page styles
+│   │   ├── components.css     # UI component styles
+│   │   └── animations.css     # Animation definitions
 │   ├── js/
-│   │   ├── main.js          # Main JavaScript
-│   │   └── animations.js    # Animation controller
-│   └── images/              # Static images
+│   │   ├── main.js            # Main JavaScript
+│   │   └── animations.js      # Animation controller
+│   ├── images/                # Site photos & backgrounds
+│   └── icons/                 # SVG assets
 ├── components/
-│   ├── navbar.js            # Navigation component
-│   ├── hero.js              # Hero section
-│   ├── skills.js            # Skills section
-│   ├── projects.js          # Projects section
-│   └── contact.js           # Contact form
-└── services/                # Service integrations
+│   ├── layout/                # Shared layout renders (Navbar, Footer)
+│   ├── sections/              # Home/Blog sections logic
+│   └── ui/                    # Reusable UI components
+└── services/                  # Service integrations
 ```
 
 ## 🎨 Color Palette
