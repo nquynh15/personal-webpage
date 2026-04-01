@@ -83,12 +83,44 @@
 
     <!-- Initialize Blog Cards -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            BlogCardComponent.init({
-                selector: '#blog-list-grid',
-                variant: 'blog',
-                limit: 0 // Show all 9 articles on list page
-            });
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Download article data
+                const posts = await BlogCardComponent.loadData();
+                const gridContainer = document.querySelector('#blog-list-grid');
+
+                // Initial render (all posts)
+                BlogCardComponent.renderGrid(gridContainer, posts, {
+                    variant: 'blog',
+                    limit: 0
+                });
+
+                // Filter processing logic
+                const filterBtns = document.querySelectorAll('.filter-btn');
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        // Update active status
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+
+                        // Filter articles by category
+                        const category = btn.textContent.trim();
+                        let filteredPosts = posts;
+
+                        if (category !== 'Tất cả') {
+                            filteredPosts = posts.filter(post => post.category === category);
+                        }
+
+                        // Re-render the display
+                        BlogCardComponent.renderGrid(gridContainer, filteredPosts, {
+                            variant: 'blog',
+                            limit: 0
+                        });
+                    });
+                });
+            } catch (err) {
+                console.warn('❌ Failed to load and initialize blogs:', err);
+            }
         });
     </script>
 </body>

@@ -144,6 +144,18 @@ const BlogCardComponent = (() => {
             throw new Error(`Failed to load blogs_data.json: ${response.status}`);
         }
         const data = await response.json();
+
+        // Handle the grouped category structure
+        if (Array.isArray(data) && data.length > 0 && 'blog_list' in data[0]) {
+            return data.flatMap(cat =>
+                (cat.blog_list || []).map(post => ({
+                    ...post,
+                    category: cat.label,
+                    categoryId: cat.id
+                }))
+            );
+        }
+
         return Array.isArray(data) ? data : [];
     }
 
