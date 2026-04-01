@@ -1,0 +1,129 @@
+.blog-list-header {
+  text-align: center;
+  padding: 8rem 5% 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-list-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  margin-bottom: 1rem;
+}
+
+.blog-list-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-family: var(--font-secondary);
+  line-height: 1.6;
+}
+
+.blog-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 3rem;
+  padding: 0 5%;
+}
+
+.filter-btn {
+  background-color: var(--white);
+  color: var(--text-secondary);
+  border: 1px solid #eee;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-family: var(--font-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 10px rgba(186, 104, 200, 0.3);
+}
+
+.blog-list-grid-container {
+  padding: 0 5% 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-stats-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  padding: 2rem 5% 5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 0;
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat-card.stat-pink {
+  background-color: #fff0f5;
+}
+
+.stat-card.stat-pink .stat-number {
+  color: var(--accent-1);
+}
+
+.stat-card.stat-purple {
+  background-color: #f7f0ff;
+}
+
+.stat-card.stat-purple .stat-number {
+  color: var(--primary-color);
+}
+
+.stat-card.stat-blue {
+  background-color: #f0f7ff;
+}
+
+.stat-card.stat-blue .stat-number {
+  color: #4facfe;
+}
+
+.stat-card.stat-green {
+  background-color: #f0fff4;
+}
+
+.stat-card.stat-green .stat-number {
+  color: #38c172;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-family: var(--font-secondary);
+}

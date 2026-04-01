@@ -51,17 +51,33 @@ const BlogCardComponent = (() => {
 
         if (variant === 'blog') {
             // Blog page variant — uses blog-card-image, blog-card-content, etc.
+            const likesCount = typeof post.likes === 'number' ? post.likes : 0;
+            const tagsHtml = Array.isArray(post.tags) ? post.tags.map(tag => `
+                <span class="blog-tag">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                    ${escapeHtml(tag)}
+                </span>
+            `).join('') : '';
+
             return `
                 <article class="blog-card" aria-label="${title}">
                     <div class="blog-card-image">
-                        <span class="blog-category-badge">${category}</span>
+                        <span class="blog-category-badge-pill">${category}</span>
+                        <div class="blog-likes-float">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <span>${likesCount}</span>
+                        </div>
                         <img src="${escapeHtml(imageSrc)}" alt="${imageAlt}" loading="lazy">
                     </div>
                     <div class="blog-card-content">
-                        <span class="blog-date">${date}</span>
+                        <span class="blog-date">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            ${date}
+                        </span>
                         <h3 class="blog-card-title">${title}</h3>
                         <p class="blog-card-excerpt">${excerpt}</p>
-                        <a href="${escapeHtml(href)}" class="read-more"${linkAttrs}>Đọc thêm</a>
+                        ${tagsHtml ? `<div class="blog-tags">${tagsHtml}</div>` : ''}
+                        <a href="${escapeHtml(href)}" class="btn-read-full"${linkAttrs}>Đọc bài viết</a>
                     </div>
                 </article>
             `;

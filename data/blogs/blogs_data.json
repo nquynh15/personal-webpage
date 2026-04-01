@@ -1,67 +1,154 @@
 [
   {
     "title": "Cách tôi bắt đầu hành trình blogging",
-    "excerpt": "Chia sẻ những bước đầu tiên và những điều tôi học được trên con đường trở thành một blogger...",
+    "excerpt": "Chia sẻ những bước đầu tiên trong việc tạo blog cá nhân, từ việc chọn nền tảng đến việc viết bài đầu tiên. Những khó khăn và bài học...",
     "category": "Blogging Tips",
     "date": "15 Tháng 3, 2026",
+    "likes": 124,
+    "tags": [
+      "Blogging",
+      "Bắt đầu",
+      "Tips"
+    ],
     "image": {
-      "src": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "src": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
       "alt": "Hành trình blogging"
     },
     "url": "#"
   },
   {
     "title": "Không gian làm việc của tôi",
-    "excerpt": "Trang trí góc làm việc với phong cách tối giản và đáng yêu để tăng cảm hứng sáng tạo mỗi ngày...",
+    "excerpt": "Trang trí góc làm việc với phong cách tối giản và đáng yêu. Những món đồ yêu thích giúp tôi làm việc hiệu quả hơn và tạo cảm hứng mỗi...",
     "category": "Lifestyle",
     "date": "10 Tháng 3, 2026",
+    "likes": 156,
+    "tags": [
+      "Workspace",
+      "Aesthetic",
+      "Lifestyle"
+    ],
     "image": {
-      "src": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "src": "https://images.unsplash.com/photo-1517842645767-c639042777db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
       "alt": "Không gian làm việc"
     },
     "url": "#"
   },
   {
     "title": "Tips chụp ảnh đẹp cho blog",
-    "excerpt": "Những mẹo nhỏ giúp bạn có những bức ảnh lung linh cho blog mà không cần máy ảnh chuyên nghiệp...",
+    "excerpt": "Những mẹo nhỏ giúp bạn có những bức ảnh lung linh cho blog của mình. Ánh sáng, góc độ và cách edit ảnh đơn giản nhưng hiệu quả.",
     "category": "Photography",
     "date": "5 Tháng 3, 2026",
+    "likes": 98,
+    "tags": [
+      "Photography",
+      "Tutorial",
+      "Blog"
+    ],
     "image": {
-      "src": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "src": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
       "alt": "Tips chụp ảnh"
     },
     "url": "#"
   },
   {
-    "title": "10 Essential Web Development Tips for Beginners",
-    "excerpt": "A comprehensive guide to help new developers start their journey in web development...",
-    "category": "Web Development",
-    "date": "March 15, 2024",
+    "title": "Những quán cà phê yêu thích",
+    "excerpt": "Khám phá những quán cà phê xinh xắn trong thành phố. Nơi lý tưởng để làm việc, đọc sách hoặc đơn giản là thư giãn.",
+    "category": "Lifestyle",
+    "date": "28 Tháng 2, 2026",
+    "likes": 142,
+    "tags": [
+      "Café",
+      "Review",
+      "Lifestyle"
+    ],
     "image": {
-      "src": "https://placehold.co/350x200?text=Web+Development+Tips&bg=2e7d66&color=ffffff",
-      "alt": "Web Development Tips"
+      "src": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "alt": "Quán cà phê yêu thích"
     },
     "url": "#"
   },
   {
-    "title": "JavaScript Trends to Watch in 2024",
-    "excerpt": "Exploring the latest trends and technologies in the JavaScript ecosystem...",
-    "category": "JavaScript",
-    "date": "March 10, 2024",
+    "title": "Sách tôi đã đọc trong tháng",
+    "excerpt": "Review những cuốn sách hay tôi đã đọc gần đây. Từ tiểu thuyết đến sách self-help, mỗi cuốn đều mang lại những bài học quý giá.",
+    "category": "Personal",
+    "date": "20 Tháng 2, 2026",
+    "likes": 87,
+    "tags": [
+      "Books",
+      "Review",
+      "Reading"
+    ],
     "image": {
-      "src": "https://placehold.co/350x200?text=JavaScript+Trends&bg=a3b18a&color=ffffff",
-      "alt": "JavaScript Trends"
+      "src": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "alt": "Sách đã đọc"
     },
     "url": "#"
   },
   {
-    "title": "Creating Better User Experiences",
-    "excerpt": "How to design interfaces that users love and find intuitive to use...",
-    "category": "Design",
-    "date": "March 5, 2024",
+    "title": "Nhật ký hằng ngày của tôi",
+    "excerpt": "Cách tôi sử dụng bullet journal để ghi lại những khoảnh khắc đáng nhớ và lên kế hoạch cho mỗi ngày. Một thói quen giúp tôi sống c...",
+    "category": "Personal",
+    "date": "15 Tháng 2, 2026",
+    "likes": 113,
+    "tags": [
+      "Journal",
+      "Productivity",
+      "Lifestyle"
+    ],
     "image": {
-      "src": "https://placehold.co/350x200?text=UI+UX+Design&bg=e76f51&color=ffffff",
-      "alt": "UI/UX Design"
+      "src": "https://images.unsplash.com/photo-1517842645767-c639042777db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "alt": "Bullet journal"
+    },
+    "url": "#"
+  },
+  {
+    "title": "Cây cảnh cho góc làm việc",
+    "excerpt": "Những loại cây nhỏ xinh dễ chăm sóc phù hợp cho bàn làm việc. Cây xanh không chỉ trang trí mà còn mang lại năng lượng tích cực.",
+    "category": "Lifestyle",
+    "date": "10 Tháng 2, 2026",
+    "likes": 95,
+    "tags": [
+      "Plants",
+      "Decor",
+      "Tips"
+    ],
+    "image": {
+      "src": "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "alt": "Cây cảnh mini"
+    },
+    "url": "#"
+  },
+  {
+    "title": "Hoa và cuộc sống",
+    "excerpt": "Cách tôi sử dụng hoa tươi để trang trí không gian sống. Những bó hoa nhỏ xinh mang lại sự tươi mới và hạnh phúc cho mỗi ngày.",
+    "category": "Lifestyle",
+    "date": "5 Tháng 2, 2026",
+    "likes": 167,
+    "tags": [
+      "Flowers",
+      "Aesthetic",
+      "Lifestyle"
+    ],
+    "image": {
+      "src": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "alt": "Hoa tươi"
+    },
+    "url": "#"
+  },
+  {
+    "title": "Chuyến đi cuối tuần",
+    "excerpt": "Khám phá những địa điểm du lịch gần thành phố. Những trải nghiệm thú vị và bài học từ mỗi chuyến đi.",
+    "category": "Travel",
+    "date": "1 Tháng 2, 2026",
+    "likes": 203,
+    "tags": [
+      "Travel",
+      "Adventure",
+      "Photography"
+    ],
+    "image": {
+      "src": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "alt": "Địa điểm du lịch dã ngoại"
     },
     "url": "#"
   }

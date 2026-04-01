@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Blog</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="components/layout/navbar/navbar.css">
+    <!-- Blog Style -->
+    <link rel="stylesheet" href="assets/css/blog.css">
+    <link rel="stylesheet" href="assets/css/blog-list.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+
+<body class="blog-page">
+    <!-- Navigation (rendered by navbar-render.js) -->
+    <div id="navbar-placeholder" data-active-page="blog"></div>
+
+    <!-- Blog List Header -->
+    <header class="blog-list-header">
+        <h1 class="blog-list-title">Dự án & Bài viết</h1>
+        <p class="blog-list-subtitle">
+            Những câu chuyện tôi đã viết và chia sẻ về cuộc sống, sở thích và hành trình học tập
+        </p>
+    </header>
+
+    <!-- Category Filters -->
+    <div class="blog-filters">
+        <button class="filter-btn active">Tất cả</button>
+        <button class="filter-btn">Lifestyle</button>
+        <button class="filter-btn">Blogging Tips</button>
+        <button class="filter-btn">Photography</button>
+        <button class="filter-btn">Travel</button>
+        <button class="filter-btn">Personal</button>
+    </div>
+
+    <!-- Blog Grid Container -->
+    <div class="blog-list-grid-container">
+        <div class="blog-grid" id="blog-list-grid">
+            <!-- Dynamic content loaded from JSON -->
+        </div>
+    </div>
+
+    <!-- Blog Statistics -->
+    <div class="blog-stats-section">
+        <div class="stat-card stat-pink">
+            <div class="stat-number">9</div>
+            <div class="stat-label">Bài viết</div>
+        </div>
+        <div class="stat-card stat-purple">
+            <div class="stat-number">1185</div>
+            <div class="stat-label">Lượt thích</div>
+        </div>
+        <div class="stat-card stat-blue">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Danh mục</div>
+        </div>
+        <div class="stat-card stat-green">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Tháng viết blog</div>
+        </div>
+    </div>
+
+    <!-- Footer (rendered by footer.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Layout Renderers -->
+    <script src="components/layout/navbar/navbar-render.js"></script>
+    <script src="components/layout/footer/footer.js"></script>
+    <script src="components/layout/navbar/navbar.js"></script>
+
+    <!-- Shared Components -->
+    <script src="components/ui/blog-card.js"></script>
+
+    <!-- Initialize Blog Cards -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            BlogCardComponent.init({
+                selector: '#blog-list-grid',
+                variant: 'blog',
+                limit: 0 // Show all 9 articles on list page
+            });
+        });
+    </script>
+</body>
+</html>
