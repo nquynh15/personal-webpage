@@ -268,7 +268,7 @@ class NavbarComponent {
     }
 
     destroy() {
-        // ✅ Clean up event listeners với bound methods
+        // Clean up event listeners với bound methods
         if (this.navToggle && this.boundToggleMobileMenu) {
             this.navToggle.removeEventListener('click', this.boundToggleMobileMenu);
         }

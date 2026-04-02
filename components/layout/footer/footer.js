@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-section">
-                        <h3>Nguyen Thi Quynh</h3>
+                        <img src="assets/images/logo.png" alt="Nguyen Thi Quynh" class="footer-logo-img">
                         <p>Software Developer passionate about creating beautiful and functional web experiences.</p>
                     </div>
                     <div class="footer-section">

@@ -46,8 +46,8 @@
         <nav class="navbar" id="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="index.html" style="text-decoration:none;color:inherit;">
-                        <h2>Nguyen Thi Quynh</h2>
+                    <a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;">
+                        <img src="assets/images/logo.png" alt="Nguyen Thi Quynh" class="navbar-logo-img">
                     </a>
                 </div>
                 <ul class="nav-menu" id="nav-menu">
